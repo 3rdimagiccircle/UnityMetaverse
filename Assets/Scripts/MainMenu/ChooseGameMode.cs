@@ -1,73 +1,49 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using UnityEngine.XR;
 using UnityEngine.XR.Management;
 
 public class ChooseGameMode : MonoBehaviour
 {
-    //public Text titleNameText;
     public XRGeneralSettings xRGeneralSettings;
 
     private void Awake()
     {
-        Debug.Log("Stopping XR...");
-
-        xRGeneralSettings.Manager.StopSubsystems();
-        xRGeneralSettings.Manager.DeinitializeLoader();
-        Camera.main.fieldOfView = 60;
-        Debug.Log("XR stopped completely.");
-    }
-
-    
-
-    //public void ClickToChooseGameMode(int index)
-    //{
-    //    switch (index)
-    //    {
-    //        case 1:
-    //            SceneManager.LoadScene(index);
-    //            StartCoroutine(StartXR());
-    //            break;
-    //        case 2:
-                
-    //            SceneManager.LoadScene(index);
-    //            StopXR();
-    //            break;
-    //    }
-    //}
-
-    public IEnumerator StartXRRoutine()
-    {
-        Debug.Log("Initializing XR...");
-        yield return xRGeneralSettings.Manager.InitializeLoader();
-
-        if (xRGeneralSettings.Manager.activeLoader == null)
+        if (xRGeneralSettings.Manager.isInitializationComplete)
         {
-            Debug.LogError("Initializing XR Failed. Check Editor or Player log for details.");
+            StopXR();
         }
         else
         {
-            Debug.Log("Starting XR...");
-            xRGeneralSettings.Manager.StartSubsystems();
+            StartCoroutine(WaitForInitializationAndStopXR());
+        }
+
+        SetCameraFieldOfView(60);
+    }
+
+
+    public void StartXRButton()
+    {
+        if (xRGeneralSettings.Manager.isInitializationComplete)
+        {
+            StartXR();
+        }
+        else
+        {
+            StartCoroutine(WaitForInitializationStartXR());
         }
     }
 
-    public void StartXR()
+    public void StopXRButton()
     {
-        StartCoroutine(StartXRRoutine());
+        if (xRGeneralSettings.Manager.isInitializationComplete)
+        {
+            StopXR();
+        }
+        else
+        {
+            StartCoroutine(WaitForInitializationAndStopXR());
+        }
     }
-    public void StopXR()
-    {
-        Debug.Log("Stopping XR...");
-
-        xRGeneralSettings.Manager.StopSubsystems();
-        xRGeneralSettings.Manager.DeinitializeLoader();
-        Debug.Log("XR stopped completely.");
-    }
-
     public void BackToNativeApp()
     {
         Application.Unload();
@@ -76,6 +52,46 @@ public class ChooseGameMode : MonoBehaviour
     public void CallNativeEvent(string titleName)
     {
         Debug.Log("Event calling from native--" + titleName);
-        //titleNameText.text = titleName;
+    }
+
+    private IEnumerator WaitForInitializationAndStopXR()
+    {
+        while (!xRGeneralSettings.Manager.isInitializationComplete)
+        {
+            yield return null;
+        }
+
+        StopXR();
+        yield break;
+    }
+
+    private IEnumerator WaitForInitializationStartXR()
+    {
+        while (!xRGeneralSettings.Manager.isInitializationComplete)
+        {
+            yield return null;
+        }
+
+        StartXR();
+        yield break;
+    }
+
+    private void StartXR()
+    {
+        Debug.Log("Starting XR...");
+        xRGeneralSettings.Manager.StartSubsystems();
+    }
+
+    private void StopXR()
+    {
+        Debug.Log("Stopping XR...");
+        xRGeneralSettings.Manager.StopSubsystems();
+        xRGeneralSettings.Manager.DeinitializeLoader();
+        Debug.Log("XR stopped completely.");
+    }
+  
+    private void SetCameraFieldOfView(float fieldOfView)
+    {
+        Camera.main.fieldOfView = fieldOfView;
     }
 }
