@@ -8,10 +8,29 @@ public class ChooseGameMode : MonoBehaviour
 
     private void Awake()
     {
-        StopXR();
+        if (xRGeneralSettings.Manager.isInitializationComplete)
+        {
+            StopXR();
+        }
+        else
+        {
+            StartCoroutine(WaitForInitializationAndStopXR());
+        }
+
         SetCameraFieldOfView(60);
     }
-   
+
+    private IEnumerator WaitForInitializationAndStopXR()
+    {
+        while (!xRGeneralSettings.Manager.isInitializationComplete)
+        {
+            yield return null;
+        }
+
+        StopXR();
+        yield break;
+    }
+
     public IEnumerator StartXRRoutine()
     {
         Debug.Log("Initializing XR...");
