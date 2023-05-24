@@ -18705,7 +18705,7 @@ GameObject:
   - component: {fileID: 1661040755}
   - component: {fileID: 1661040758}
   - component: {fileID: 1661040757}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22021,7 +22021,7 @@ GameObject:
   - component: {fileID: 2000985549}
   - component: {fileID: 2000985553}
   - component: {fileID: 2000985554}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24034,6 +24034,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2091736406, guid: 0ff2249237f808848b01d0e3264f3fee, type: 3}
+      propertyPath: interactablesLayers.m_Bits
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 7633973518897213653, guid: 0ff2249237f808848b01d0e3264f3fee,
         type: 3}
       propertyPath: m_Name
