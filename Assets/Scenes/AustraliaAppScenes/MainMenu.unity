@@ -238,7 +238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -485, y: 44}
+  m_AnchoredPosition: {x: -485, y: -12}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &363873271
@@ -1034,7 +1034,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 421, y: 44}
+  m_AnchoredPosition: {x: 421, y: -12}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882870827
@@ -1532,6 +1532,7 @@ GameObject:
   - component: {fileID: 1843260187}
   - component: {fileID: 1843260186}
   - component: {fileID: 1843260185}
+  - component: {fileID: 1843260188}
   m_Layer: 5
   m_Name: RealMetaLogo
   m_TagString: Untagged
@@ -1665,6 +1666,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843260183}
   m_CullTransparentMesh: 0
+--- !u!114 &1843260188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843260183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbbaca0847c7e304e8507a850c549b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degreesPerSecond: 360
+  rotate: 1
+  rotationDuration: 2
+  pauseDuration: 30
 --- !u!1 &1843792065 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4356696917174631996, guid: 58711b6fea0cba549a3a3f4f1e3d4bdc,
