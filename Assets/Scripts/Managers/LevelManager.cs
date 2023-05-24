@@ -15,14 +15,11 @@ public class LevelManager : MonoBehaviour
     {
         if (cardboardVRRig != null )
         {
-            if (GameManager.instance.VRMode)
-            {
-                SetRig(0);
-            }
-            else
-            {
-                SetRig(1);
-            }
+            SetRig(0);
+        }
+        else
+        {
+            SetRig(1);
         }
     }
 
