@@ -19265,6 +19265,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Game UI  '
       objectReference: {fileID: 0}
+    - target: {fileID: 2611663746014033752, guid: 34167e250ee80b9449911899cc7cc843,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2611663746014033756, guid: 34167e250ee80b9449911899cc7cc843,
         type: 3}
       propertyPath: m_Pivot.x
@@ -25872,28 +25877,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 831796942, guid: 0ff2249237f808848b01d0e3264f3fee, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2124904915, guid: 0ff2249237f808848b01d0e3264f3fee, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7291393397239031434, guid: 0ff2249237f808848b01d0e3264f3fee,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7633973518897213653, guid: 0ff2249237f808848b01d0e3264f3fee,
         type: 3}
       propertyPath: m_Name
       value: CardboardVRRig
-      objectReference: {fileID: 0}
-    - target: {fileID: 7633973518897213653, guid: 0ff2249237f808848b01d0e3264f3fee,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7633973518897310961, guid: 0ff2249237f808848b01d0e3264f3fee,
         type: 3}
@@ -25950,47 +25937,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7633973520235689244, guid: 0ff2249237f808848b01d0e3264f3fee,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7633973520771378514, guid: 0ff2249237f808848b01d0e3264f3fee,
-        type: 3}
-      propertyPath: xRGeneralSettings
-      value: 
-      objectReference: {fileID: 1271707360874026292, guid: ae64cd1e7e30e0244aeeafc653f6cfe9,
-        type: 2}
-    - target: {fileID: 8580988567404238884, guid: 0ff2249237f808848b01d0e3264f3fee,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.009
-      objectReference: {fileID: 0}
-    - target: {fileID: 8580988567404238884, guid: 0ff2249237f808848b01d0e3264f3fee,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.009
-      objectReference: {fileID: 0}
-    - target: {fileID: 8580988567404238884, guid: 0ff2249237f808848b01d0e3264f3fee,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8580988567404238885, guid: 0ff2249237f808848b01d0e3264f3fee,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8580988567404238887, guid: 0ff2249237f808848b01d0e3264f3fee,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8580988567404238887, guid: 0ff2249237f808848b01d0e3264f3fee,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 045cff7dad341614cbabebc988664f58, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ff2249237f808848b01d0e3264f3fee, type: 3}
 --- !u!23 &8495901246596896988
