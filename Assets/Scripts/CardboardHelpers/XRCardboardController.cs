@@ -167,7 +167,7 @@ public class XRCardboardController : MonoBehaviour
     public bool IsTriggerPressed()
     {
 #if UNITY_EDITOR
-        return Input.GetMouseButtonDown(0);
+        return Input.GetButtonDown("Submit");
 #else
         return (Api.IsTriggerPressed || Input.GetButtonDown("Submit"));
 #endif

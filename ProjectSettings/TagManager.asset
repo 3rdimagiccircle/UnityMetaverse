@@ -7,11 +7,12 @@ TagManager:
   - InputManager
   - ItemManager
   - UIManager
+  - Selectable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Interactable
   - Water
   - UI
   - 
