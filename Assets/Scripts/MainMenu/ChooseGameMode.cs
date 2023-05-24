@@ -20,6 +20,40 @@ public class ChooseGameMode : MonoBehaviour
         SetCameraFieldOfView(60);
     }
 
+
+    public void StartXRButton()
+    {
+        if (xRGeneralSettings.Manager.isInitializationComplete)
+        {
+            StartXR();
+        }
+        else
+        {
+            StartCoroutine(WaitForInitializationStartXR());
+        }
+    }
+
+    public void StopXRButton()
+    {
+        if (xRGeneralSettings.Manager.isInitializationComplete)
+        {
+            StopXR();
+        }
+        else
+        {
+            StartCoroutine(WaitForInitializationAndStopXR());
+        }
+    }
+    public void BackToNativeApp()
+    {
+        Application.Unload();
+    }
+
+    public void CallNativeEvent(string titleName)
+    {
+        Debug.Log("Event calling from native--" + titleName);
+    }
+
     private IEnumerator WaitForInitializationAndStopXR()
     {
         while (!xRGeneralSettings.Manager.isInitializationComplete)
@@ -31,45 +65,31 @@ public class ChooseGameMode : MonoBehaviour
         yield break;
     }
 
-    public IEnumerator StartXRRoutine()
+    private IEnumerator WaitForInitializationStartXR()
     {
-        Debug.Log("Initializing XR...");
-        yield return xRGeneralSettings.Manager.InitializeLoader();
+        while (!xRGeneralSettings.Manager.isInitializationComplete)
+        {
+            yield return null;
+        }
 
-        if (xRGeneralSettings.Manager.activeLoader == null)
-        {
-            Debug.LogError("Initializing XR Failed. Check Editor or Player log for details.");
-        }
-        else
-        {
-            StartXR();
-        }
+        StartXR();
+        yield break;
     }
 
-    public void StartXR()
+    private void StartXR()
     {
         Debug.Log("Starting XR...");
         xRGeneralSettings.Manager.StartSubsystems();
     }
 
-    public void StopXR()
+    private void StopXR()
     {
         Debug.Log("Stopping XR...");
         xRGeneralSettings.Manager.StopSubsystems();
         xRGeneralSettings.Manager.DeinitializeLoader();
         Debug.Log("XR stopped completely.");
     }
-
-    public void BackToNativeApp()
-    {
-        Application.Unload();
-    }
-
-    public void CallNativeEvent(string titleName)
-    {
-        Debug.Log("Event calling from native--" + titleName);
-    }
-
+  
     private void SetCameraFieldOfView(float fieldOfView)
     {
         Camera.main.fieldOfView = fieldOfView;

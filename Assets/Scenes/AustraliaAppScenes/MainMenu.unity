@@ -299,7 +299,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1211315999}
         m_TargetAssemblyTypeName: ChooseGameMode, Assembly-CSharp
-        m_MethodName: StartXR
+        m_MethodName: StartXRButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1092,7 +1092,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1211315999}
         m_TargetAssemblyTypeName: ChooseGameMode, Assembly-CSharp
-        m_MethodName: StopXR
+        m_MethodName: StopXRButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
