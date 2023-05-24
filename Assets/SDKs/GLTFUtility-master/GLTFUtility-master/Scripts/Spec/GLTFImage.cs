@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -61,7 +62,7 @@ namespace Siccity.GLTFUtility {
 
 						if (onProgress != null) onProgress(1f);
 
-						if (uwr.isNetworkError || uwr.isHttpError) {
+						if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError) {
 							Debug.LogError("GLTFImage.cs ToTexture2D() ERROR: " + uwr.error);
 						} else {
 							Texture2D tex = DownloadHandlerTexture.GetContent(uwr);
