@@ -66,7 +66,7 @@ public class FetchApiData : MonoBehaviour
 
                 arListing.Root dataRootClass = JsonUtility.FromJson<arListing.Root>(jsonResult.ToString());
 
-                Debug.Log(dataRootClass.data.Count);
+                Debug.Log("There are " + dataRootClass.data.Count + " art objects in the list.");
                 for (int i = 0; i < dataRootClass.data.Count; i++)
                 {
                     //Debug.Log("active count val------" + dataRootClass.data[i].active);
