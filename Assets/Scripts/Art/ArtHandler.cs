@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -23,7 +21,7 @@ public class ArtHandler : MonoBehaviour
     int videoPlayerIndex;
 
    
-    float currentValue=5;
+    //float currentValue=5;
     public float speed=5;
     //string id;
 
@@ -35,7 +33,7 @@ public class ArtHandler : MonoBehaviour
     string videoUrl = "";
     string jsonResult;
 
-    bool isLoaderActive = false;
+    //bool isLoaderActive = false;
 
    
 
@@ -48,7 +46,7 @@ public class ArtHandler : MonoBehaviour
         //menuPanel = GameObject.Find("menuPanel");
     }
 
-    bool isCalled = false;
+    //bool isCalled = false;
     public void OnArtMouseDown()
     {
         //if (!isCalled)
@@ -78,7 +76,7 @@ public class ArtHandler : MonoBehaviour
            
             yield return webRequest.SendWebRequest();
 
-            if (webRequest.isNetworkError || webRequest.isHttpError)
+            if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError)
             {
                 Debug.Log(": Error: " + webRequest.error);
             }
@@ -144,7 +142,7 @@ public class ArtHandler : MonoBehaviour
 
 
 
-            if (webRequest.isNetworkError || webRequest.isHttpError)
+            if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError)
             {
                 Debug.Log(": Error: " + webRequest.error);
             }
@@ -188,7 +186,7 @@ public class ArtHandler : MonoBehaviour
     }
 
 
-    bool isVideoPlay = false, isVideoPause = false;
+    //bool isVideoPlay = false, isVideoPause = false;
     public void TogglePlayPauseVideo(int toggleIndex)
     {
 

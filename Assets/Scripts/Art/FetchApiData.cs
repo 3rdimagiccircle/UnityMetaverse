@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.UI;
-using UnityEngine.XR.Management;
 
 public class FetchApiData : MonoBehaviour
 {
@@ -18,7 +16,7 @@ public class FetchApiData : MonoBehaviour
     public List<Transform> SpawnPoints;
 
     List<arListing.Datas> activeData = new List<arListing.Datas>();
-    float xScale=15, yScale=15, zScale=0.2f;
+    //float xScale=15, yScale=15, zScale=0.2f;
 
     GameObject progressBar;
 
@@ -36,7 +34,6 @@ public class FetchApiData : MonoBehaviour
         StartCoroutine(FetchData());
     }
 
-    [System.Obsolete]
     public IEnumerator FetchData()
     {
         Debug.Log("FetchData");
@@ -57,7 +54,7 @@ public class FetchApiData : MonoBehaviour
             //}
 
 
-            if (webRequest.isNetworkError || webRequest.isHttpError)
+            if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError)
             {
                 Debug.Log(": Error: " + webRequest.error);
             }
@@ -69,7 +66,7 @@ public class FetchApiData : MonoBehaviour
 
                 arListing.Root dataRootClass = JsonUtility.FromJson<arListing.Root>(jsonResult.ToString());
 
-                Debug.Log(dataRootClass.data.Count);
+                Debug.Log("There are " + dataRootClass.data.Count + " art objects in the list.");
                 for (int i = 0; i < dataRootClass.data.Count; i++)
                 {
                     //Debug.Log("active count val------" + dataRootClass.data[i].active);
