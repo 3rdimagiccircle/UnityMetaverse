@@ -10,26 +10,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject cardboardVRRig;
     [SerializeField] private GameObject gameUI;
     [SerializeField] private GameObject playerController;
-  
-    private void Start()
-    {
-        if (cardboardVRRig != null )
-        {
-            SetRig(0);
-        }
-        else
-        {
-            SetRig(1);
-        }
-    }
-
 
     public void GoToScene(string sceneName)
     {
         if (sceneName != null)
         {
             StartCoroutine(GoToSceneAsyncRoutine(sceneName));
-            //loadingScreen.StartCoroutine(loadingScreen.HideLoadingScreenObjects());
         }
         else
         {
@@ -42,52 +28,22 @@ public class LevelManager : MonoBehaviour
         Application.Quit();
     }
 
-    private void SetRig(int mode)
-    {
-        switch (mode)
-        {
-            case 0:
-                GetLoadScreen(cardboardVRRig);
-
-                break;
-
-            case 1:
-                GetLoadScreen(gameUI);
-
-                break;
-        }
-    }
-
-    private void GetLoadScreen(GameObject rig)
-    {
-        Transform loadScreenTransform = rig.transform.Find("LoadScreen");
-        if (loadScreenTransform != null)
-        {
-            loadScreen = loadScreenTransform.gameObject;
-            loadScreen.SetActive(false);
-        }
-    }
-
     private int CheckSceneBuildIndex()
     {
-        int num = SceneManager.GetActiveScene().buildIndex;
-        return num;
+        return SceneManager.GetActiveScene().buildIndex;
     }
+
     IEnumerator GoToSceneAsyncRoutine(string sceneName)
     {
-        
-            //loadScreen.SetActive(true);
-            asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+        asyncOperation = SceneManager.LoadSceneAsync(sceneName);
 
-            while (!asyncOperation.isDone)
-            {
-                yield return null;
-            }
+        while (!asyncOperation.isDone)
+        {
+            yield return null;
+        }
 
-            yield return new WaitForSeconds(sceneLoadTime);
+        yield return new WaitForSeconds(sceneLoadTime);
 
-            //loadScreen.SetActive(false);
-
-            yield break;
+        yield break;
     }
 }

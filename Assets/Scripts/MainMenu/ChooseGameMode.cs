@@ -1,44 +1,17 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using UnityEngine.XR;
 using UnityEngine.XR.Management;
 
 public class ChooseGameMode : MonoBehaviour
 {
-    //public Text titleNameText;
     public XRGeneralSettings xRGeneralSettings;
 
     private void Awake()
     {
-        Debug.Log("Stopping XR...");
-
-        xRGeneralSettings.Manager.StopSubsystems();
-        xRGeneralSettings.Manager.DeinitializeLoader();
-        Camera.main.fieldOfView = 60;
-        Debug.Log("XR stopped completely.");
+        StopXR();
+        SetCameraFieldOfView(60);
     }
-
-    
-
-    //public void ClickToChooseGameMode(int index)
-    //{
-    //    switch (index)
-    //    {
-    //        case 1:
-    //            SceneManager.LoadScene(index);
-    //            StartCoroutine(StartXR());
-    //            break;
-    //        case 2:
-                
-    //            SceneManager.LoadScene(index);
-    //            StopXR();
-    //            break;
-    //    }
-    //}
-
+   
     public IEnumerator StartXRRoutine()
     {
         Debug.Log("Initializing XR...");
@@ -50,19 +23,19 @@ public class ChooseGameMode : MonoBehaviour
         }
         else
         {
-            Debug.Log("Starting XR...");
-            xRGeneralSettings.Manager.StartSubsystems();
+            StartXR();
         }
     }
 
     public void StartXR()
     {
-        StartCoroutine(StartXRRoutine());
+        Debug.Log("Starting XR...");
+        xRGeneralSettings.Manager.StartSubsystems();
     }
+
     public void StopXR()
     {
         Debug.Log("Stopping XR...");
-
         xRGeneralSettings.Manager.StopSubsystems();
         xRGeneralSettings.Manager.DeinitializeLoader();
         Debug.Log("XR stopped completely.");
@@ -76,6 +49,10 @@ public class ChooseGameMode : MonoBehaviour
     public void CallNativeEvent(string titleName)
     {
         Debug.Log("Event calling from native--" + titleName);
-        //titleNameText.text = titleName;
+    }
+
+    private void SetCameraFieldOfView(float fieldOfView)
+    {
+        Camera.main.fieldOfView = fieldOfView;
     }
 }

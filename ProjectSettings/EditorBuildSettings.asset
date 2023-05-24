@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/NEWWEBVR/MainMenu.unity
+    path: Assets/Scenes/AustraliaAppScenes/MainMenu.unity
     guid: cd55d21da9041d04ba2ce6b93966a4ab
   - enabled: 1
-    path: Assets/Scenes/NEWWEBVR/CardboardVRScene.unity
+    path: Assets/Scenes/AustraliaAppScenes/CardboardVRScene.unity
     guid: 72d3f0122d2e23a45bf7325dde3a8a31
   - enabled: 1
-    path: Assets/Scenes/NEWWEBVR/PhoneViewScene.unity
+    path: Assets/Scenes/AustraliaAppScenes/PhoneViewScene.unity
     guid: 2a7cb63e35dce0f49b7ecb39f468f925
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
