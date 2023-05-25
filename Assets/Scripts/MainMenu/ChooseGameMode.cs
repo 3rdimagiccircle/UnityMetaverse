@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.Management;
 
 public class ChooseGameMode : MonoBehaviour
 {
     public XRGeneralSettings xRGeneralSettings;
+    [SerializeField] private Button pCButton;
+    [SerializeField] private Button cardboardButton;
+    [SerializeField] private Button phoneButton;
 
     private void Awake()
     {
@@ -18,6 +22,19 @@ public class ChooseGameMode : MonoBehaviour
         }
 
         SetCameraFieldOfView(60);
+    }
+
+    private void Start()
+    {
+        if (Application.platform == RuntimePlatform.Android) 
+        {
+            pCButton.interactable = false;
+        }
+        else
+        {
+            cardboardButton.interactable = false;
+            phoneButton.interactable = false;
+        }
     }
 
 

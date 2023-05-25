@@ -213,7 +213,6 @@ GameObject:
   - component: {fileID: 363873273}
   - component: {fileID: 363873272}
   - component: {fileID: 363873271}
-  - component: {fileID: 363873274}
   m_Layer: 5
   m_Name: VR_Button
   m_TagString: Untagged
@@ -360,22 +359,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363873269}
   m_CullTransparentMesh: 0
---- !u!114 &363873274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363873269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d586624a00464564ea019317e6f63dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 363873271}
-  cooldownTime: 0.5
-  currentCooldown: 0
-  isCooldown: 0
 --- !u!1001 &406656753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1038,7 +1021,6 @@ GameObject:
   - component: {fileID: 882870829}
   - component: {fileID: 882870828}
   - component: {fileID: 882870827}
-  - component: {fileID: 882870830}
   m_Layer: 5
   m_Name: Phone_Button
   m_TagString: Untagged
@@ -1173,22 +1155,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882870825}
   m_CullTransparentMesh: 0
---- !u!114 &882870830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882870825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d586624a00464564ea019317e6f63dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 882870827}
-  cooldownTime: 0.5
-  currentCooldown: 0
-  isCooldown: 0
 --- !u!1 &1091710224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,6 +1266,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xRGeneralSettings: {fileID: 1271707360874026292, guid: ae64cd1e7e30e0244aeeafc653f6cfe9,
     type: 2}
+  pCButton: {fileID: 530768208}
+  cardboardButton: {fileID: 363873271}
+  phoneButton: {fileID: 882870827}
 --- !u!4 &1211316000
 Transform:
   m_ObjectHideFlags: 0
@@ -1725,7 +1694,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   degreesPerSecond: 360
-  rotate: 1
+  rotateVertical: 1
+  rotateHorizontal: 0
   rotationDuration: 2
   pauseDuration: 30
 --- !u!1 &1843792065 stripped
