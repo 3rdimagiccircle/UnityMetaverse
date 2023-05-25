@@ -22,10 +22,10 @@ public class FetchApiData : MonoBehaviour
 
     private void OnEnable()
     {
-      
+
         Debug.Log("OnEnable");
-       
-    
+
+
         GetData();
     }
 
