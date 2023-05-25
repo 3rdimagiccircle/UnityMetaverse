@@ -21090,6 +21090,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   degreesPerSecond: 200
   rotate: 1
+  rotationDuration: 5
+  pauseDuration: 2
 --- !u!136 &1843997124
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22614,7 +22616,6 @@ GameObject:
   - component: {fileID: 2000985551}
   - component: {fileID: 2000985550}
   - component: {fileID: 2000985549}
-  - component: {fileID: 2000985553}
   - component: {fileID: 2000985555}
   - component: {fileID: 2000985554}
   m_Layer: 6
@@ -22703,20 +22704,6 @@ Transform:
   m_Father: {fileID: 987897736}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: -57.526}
---- !u!114 &2000985553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000985548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbbaca0847c7e304e8507a850c549b8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  degreesPerSecond: 10
-  rotate: 1
 --- !u!114 &2000985554
 MonoBehaviour:
   m_ObjectHideFlags: 0
