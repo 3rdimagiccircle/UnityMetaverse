@@ -20,14 +20,19 @@ public class FetchApiData : MonoBehaviour
 
     GameObject progressBar;
 
-    private void OnEnable()
+    private void Awake()
     {
-      
-        Debug.Log("OnEnable");
-       
-    
         GetData();
     }
+
+    //private void OnEnable()
+    //{
+      
+    //    Debug.Log("OnEnable");
+       
+    
+    //    GetData();
+    //}
 
     public void GetData()
     {
