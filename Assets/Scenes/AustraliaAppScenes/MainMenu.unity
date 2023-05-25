@@ -374,6 +374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 363873271}
   cooldownTime: 0.5
+  currentCooldown: 0
+  isCooldown: 0
 --- !u!1001 &406656753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1185,6 +1187,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 882870827}
   cooldownTime: 0.5
+  currentCooldown: 0
+  isCooldown: 0
 --- !u!1 &1091710224
 GameObject:
   m_ObjectHideFlags: 0

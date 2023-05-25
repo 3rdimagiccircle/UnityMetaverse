@@ -19,10 +19,6 @@ public class ButtonCooldown : MonoBehaviour
     {
         if (!isCooldown)
         {
-            // Perform the button action or function here
-            // ...
-
-            // Start the cooldown
             StartCooldown();
         }
     }
@@ -30,22 +26,20 @@ public class ButtonCooldown : MonoBehaviour
     {
         currentCooldown = cooldownTime;
         isCooldown = true;
-        button.interactable = false; // Disable the button during cooldown
+        button.interactable = false; 
 
-        // Start the cooldown coroutine
         StartCoroutine(CooldownCoroutine());
     }
     IEnumerator CooldownCoroutine()
     {
         while (currentCooldown > 0)
         {
-            yield return null; // Wait for the next frame
-            currentCooldown -= Time.deltaTime; // Decrease the cooldown timer
+            yield return null; 
+            currentCooldown -= Time.deltaTime; 
         }
 
-        // Cooldown finished
         isCooldown = false;
-        button.interactable = true; // Enable the button
+        button.interactable = true; 
 
         yield return null;
     }

@@ -4,7 +4,8 @@ using UnityEngine;
 public class RotateObject : MonoBehaviour
 {
     public int degreesPerSecond = 200;
-    public bool rotate = true;
+    public bool rotateVertical = true;
+    public bool rotateHorizontal = false;
     [SerializeField] private float rotationDuration = 5f;
     [SerializeField] private float pauseDuration = 2f;
 
@@ -13,10 +14,15 @@ public class RotateObject : MonoBehaviour
 
     private void Start()
     {
-        if (rotate)
+        if (rotateVertical)
         {
             initialRotation = transform.rotation;
             StartCoroutine(RotateObjectRoutine());
+        }
+        else
+        {
+            initialRotation = transform.rotation;
+            StartCoroutine(RotateObjectHorizontalRoutine());
         }
     }
 
@@ -24,10 +30,27 @@ public class RotateObject : MonoBehaviour
     {
         while (true)
         {
-            if (rotate)
+           
+            transform.Rotate(0, degreesPerSecond * Time.deltaTime, 0);
+
+            rotationTime += Time.deltaTime;
+
+            if (rotationTime >= rotationDuration)
             {
-                transform.Rotate(0, degreesPerSecond * Time.deltaTime, 0);
+                rotationTime = 0f;
+                transform.rotation = initialRotation;
+                yield return new WaitForSeconds(pauseDuration);
             }
+
+            yield return null;
+        }
+    }
+
+    private IEnumerator RotateObjectHorizontalRoutine()
+    {
+        while (true)
+        {
+            transform.Rotate(0, 0, degreesPerSecond * Time.deltaTime);
 
             rotationTime += Time.deltaTime;
 
